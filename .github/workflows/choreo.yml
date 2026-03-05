@@ -14,29 +14,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - artifact-name: Windows-x86_64
-            os: windows-2025
-            tauri-build-flags: --target x86_64-pc-windows-msvc -v -- --workspace --timings
-
-          - artifact-name: Windows-aarch64
-            os: windows-2025
-            tauri-build-flags: --target aarch64-pc-windows-msvc -v -- --workspace --timings
-
-          - artifact-name: macOS-x86_64
-            os: macos-15
-            tauri-build-flags: --target x86_64-apple-darwin -v -- --workspace --timings
-
-          - artifact-name: macOS-aarch64
-            os: macos-15
-            tauri-build-flags: --target aarch64-apple-darwin -v -- --workspace --timings
-
           - artifact-name: Linux-x86_64
-            os: ubuntu-24.04
+            os: ubuntu-22.04
             tauri-build-flags: --target x86_64-unknown-linux-gnu -v -- --workspace --timings
-
-          - artifact-name: Linux-aarch64
-            os: ubuntu-24.04-arm
-            tauri-build-flags: --target aarch64-unknown-linux-gnu -v -- --workspace --timings
 
     name: ${{ matrix.artifact-name }}
     runs-on: ${{ matrix.os }}
