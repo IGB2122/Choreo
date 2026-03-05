@@ -62,7 +62,7 @@ jobs:
       - name: Install GCC 14 maybe
         run: |
           sudo apt-get update
-          sudo apt-get install gcc-12-base
+          sudo apt-get install gcc-14-base
           
       - uses: actions/checkout@v6
         with:
