@@ -58,6 +58,12 @@ jobs:
           echo "/opt/gcc-14/bin" >> $GITHUB_PATH
           gcc --version
           g++ --version
+
+      - name: Make GCC 14 the default toolchain (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo update-alternatives --install /usr/bin/gcc gcc /opt/gcc-14/bin/gcc-14 200
+          sudo update-alternatives --install /usr/bin/g++ g++ /opt/gcc-14/bin/g++-14 200
           
       - if: always() && steps.cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v5
